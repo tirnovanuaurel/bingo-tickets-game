@@ -1,0 +1,207 @@
+// bower:scss
+// endbower
+
+// Mini CSS Reset
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
+body, figure { margin: 0; }
+
+html { font-size: 62.5%; } //for rem units.
+
+/* Style */
+
+body {
+  background : #054c54;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color      : #333;
+}
+
+#bingoTickets {
+  display: table;
+  margin : 0 auto;
+
+  & .ticket {
+    position  : relative;
+    background: #ffdbe5;
+    width     : 400px;
+    display   : table;
+    float     : left;
+    margin    : .5rem;
+    padding   : .5rem;
+    border    : 1px solid #000;
+
+    & .remaining {
+      display    : block;
+      position   : absolute;
+      margin     : 0; padding: 0;
+      right      : .5rem;
+      top        : .5rem;
+      height     : 90px;
+      float      : right;
+      width      : 110px;
+      color      : #FFF;
+      text-align : center;
+      font-size  : 2rem;
+      line-height: 1.4rem;
+      background : #5dc419;
+      background : -ms-linear-gradient(top, #5dc419 0%,#2ba506 50%,#5dc419 100%); /* IE10+ */
+      background : linear-gradient(to bottom, #5dc419 0%,#2ba506 50%,#5dc419 100%); /* W3C */
+      & h3 {
+        font-size: 3rem;
+        margin: 1rem; padding: 1rem;
+      }
+    }
+  }
+}
+
+.ticket__row{
+  clear  : both;
+  display: table-row;
+  float  : left;
+  width  : 270px;
+}
+
+.ticket__cell {
+  position          : relative;
+  display           : table-cell;
+  width             : 3rem;
+  height            : 3rem;
+  background        : #FFF;
+  color             : #000;
+  text-align        : center;
+  font-weight       : bold;
+  font-size         : 1.8rem;
+  vertical-align    : middle;
+  border            : 1px solid #000;
+  transition        : 0.08s ease-in;
+  -o-transition     : 0.08s ease-in;
+  -ms-transition    : 0.08s ease-in;
+  -moz-transition   : 0.08s ease-in;
+  -webkit-transition: 0.08s ease-in;
+	&:hover {
+		background: #C7C7CC;
+	}
+	&:before {
+		content           : "";
+		position          : absolute;
+		bottom            : 0;
+		left              : 0;
+		right             : 0;
+		top               : 100%;
+		z-index           : -1;
+		transition        : top 0.09s ease-in;
+		-webkit-transition: top 0.09s ease-in;
+		background        : #FF3A2D;
+	}
+	&.marked {
+		background: transparent;
+	}
+	&.marked:before {
+		top: 0;
+	}
+}
+
+
+#playBingo {
+  position     : relative;
+  margin       : 1rem 0 0 .5rem;
+  font-weight  : 100;
+  padding      : 1rem 1rem;
+  text-align   : center;
+  width        : auto;
+  border-radius: 5px;
+  color        : #fff;
+  font-size    : 1.4rem;
+  border       : none;
+  overflow     : hidden;
+  position     : relative;
+	outline      : none;
+  z-index      : 0;
+  cursor       : pointer;
+  background   : #5dc419;
+  background   : -ms-linear-gradient(top, #5dc419 0%,#2ba506 50%,#5dc419 100%); /* IE10+ */
+  background   : linear-gradient(to bottom, #5dc419 0%,#2ba506 50%,#5dc419 100%); /* W3C */
+}
+
+.winner {
+	display  : block;
+	float    : left;
+	color    : #FFF;
+	font-size: 1.4rem;
+	padding  : 1.5rem 0 1.5rem .5rem;
+}
+
+/* Media queries - desktop first  */
+/* Tested with Chrome dev tools device mode */
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	#bingoTickets .ticket {
+		width: 48%;
+		table-layout: fixed;
+		max-width: 100%;
+	}
+
+	.ticket__cell {
+		width: 3rem;
+		font-size: 1.8rem;
+	}
+
+	#bingoTickets .ticket .remaining {
+		width: 75px;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 385px) and (max-width : 480px) {
+	#bingoTickets .ticket {
+		width: 90%;
+		table-layout: fixed;
+		max-width: 100%;
+	}
+
+	.ticket__cell {
+		width: 3rem;
+		font-size: 1.6rem;
+	}
+
+	#bingoTickets .ticket .remaining {
+		width: 75px;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 321px) and (max-width : 384px) {
+	#bingoTickets .ticket {
+		width: 97%;
+		table-layout: fixed;
+		max-width: 100%;
+	}
+
+	.ticket__cell {
+		width: 2.8rem;
+		font-size: 1.4rem;
+	}
+
+	#bingoTickets .ticket .remaining {
+		width: 75px;
+	}
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+	#bingoTickets .ticket {
+		width: 97%;
+		table-layout: fixed;
+		max-width: 100%;
+	}
+
+	.ticket__cell {
+		width: 2.4rem;
+		font-size: 1.1rem;
+	}
+
+	#bingoTickets .ticket .remaining {
+		width: 75px;
+	}
+}
