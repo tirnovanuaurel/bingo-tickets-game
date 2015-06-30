@@ -123,9 +123,9 @@ goBingo.prototype = {
       var elem = randomNumbers[idx];
 
       document.querySelector('div[data-nr="' + elem[1] + '"]').classList.add('marked');
-      var toGo = parseInt(document.getElementById('toGo' + elem[0]).innerText);
+      var toGo = parseInt(document.getElementById('toGo' + elem[0]).innerHTML);
       toGo--;
-      document.getElementById('toGo' + elem[0]).innerText = toGo;
+      document.getElementById('toGo' + elem[0]).innerHTML = toGo.toString();
 
       //if winner
       if (toGo === 0) {
